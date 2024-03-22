@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "982137966392",
+    "project_id": "igarage-e690d",
+    "storage_bucket": "igarage-e690d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982137966392:android:f91397d0275b9fffc67bcd",
+        "android_client_info": {
+          "package_name": "com.example.smartparking"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZGF07TMg9SCJegSzMAO7ta3xR9PonA0U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

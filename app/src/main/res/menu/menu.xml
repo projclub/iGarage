@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/btnHome"
+        android:title="Home"
+        android:icon="@drawable/gis_home"/>
+    <item
+        android:id="@+id/btnBooking"
+        android:title="My booking"
+        android:icon="@drawable/fluent_qr_code_20_filled"/>
+    <item
+        android:id="@+id/btnProfile"
+        android:title="Profile"
+        android:icon="@drawable/fluent_person_24_filled"/>
+</menu>
