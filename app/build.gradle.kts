@@ -51,6 +51,8 @@ dependencies {
     // Import the BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:32.7.4"))
         // Maps SDK for Android
-    implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation("com.google.android.gms:play-services-maps:18.0.1")
+    implementation ("com.google.android.gms:play-services-location:18.0.0")
+
 
 }
