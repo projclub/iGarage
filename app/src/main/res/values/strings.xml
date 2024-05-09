@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="google_map_api_key">AIzaSyDK6Q9qIvKEMAyvKPwBSvSC73pKcU9PA1o</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="default_web_client_id">YOUR_WEB_CLIENT_ID</string>
+
 </resources>

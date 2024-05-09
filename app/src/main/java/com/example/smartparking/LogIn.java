@@ -35,7 +35,7 @@ public class LogIn extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonSignup);
         //forgot password
-        TextView textView = findViewById(R.id.my_text_view);
+       // TextView textView = findViewById(R.id.my_text_view);
 
         auth = FirebaseAuth.getInstance();
 

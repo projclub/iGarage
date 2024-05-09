@@ -11,7 +11,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/Blue"
+        android:background="@drawable/rounded_corner"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -39,7 +39,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
+            android:paddingLeft="25dp"
             android:paddingBottom="2dp"
             android:text="MSIT PARKING"
             android:textColor="@color/white"
@@ -50,7 +50,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
+            android:paddingLeft="25dp"
             android:paddingBottom="5dp"
             android:text="Free Spot : 9/10"
             android:textColor="@color/white"
@@ -64,6 +64,7 @@
         android:layout_marginBottom="232dp"
         android:text="Select Parking Duration"
         android:textSize="25dp"
+        android:paddingLeft="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.106"
@@ -72,11 +73,11 @@
         app:layout_constraintVertical_bias="0.146" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
+        android:id="@+id/Hr_one_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:background="@drawable/rounded_corner"
+        android:background="@drawable/roundde_bookin_time_corner"
         android:text="1Hr"
         android:textColor="@color/white"
         android:textSize="17sp"
@@ -89,10 +90,10 @@
         app:layout_constraintVertical_bias="0.144" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton2"
+        android:id="@+id/Hr_Two_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corner"
+        android:background="@drawable/roundde_bookin_time_corner"
         android:text="2Hr"
         android:textColor="@color/white"
         android:textSize="17sp"
@@ -100,16 +101,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.083"
-        app:layout_constraintStart_toEndOf="@+id/appCompatButton"
+        app:layout_constraintStart_toEndOf="@+id/Hr_one_Button"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.139" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Hr_Three_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="72dp"
-        android:background="@drawable/rounded_corner"
+        android:background="@drawable/roundde_bookin_time_corner"
         android:contentDescription="3hr"
         android:text="3Hr"
         android:textColor="@color/white"
@@ -117,9 +119,24 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.224"
-        app:layout_constraintStart_toEndOf="@+id/appCompatButton2"
+        app:layout_constraintStart_toEndOf="@+id/Hr_Two_Button"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.184" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/confirm_button"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_margin="50dp"
+        android:background="#00D689"
+        android:text="Confirm"
+        android:textColor="#303030"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Hr_Two_Button"
+        app:layout_constraintVertical_bias="0.159" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

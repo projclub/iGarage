@@ -8,15 +8,19 @@ android {
     namespace = "com.example.smartparking"
     compileSdk = 34
 
+    buildFeatures {
+        viewBinding = true
+    }
     defaultConfig {
         applicationId = "com.example.smartparking"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
+
 
     buildTypes {
         release {
@@ -50,9 +54,21 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     // Import the BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:32.7.4"))
-        // Maps SDK for Android
+    dependencies {
+        // Firebase Authentication
+        implementation("com.google.firebase:firebase-auth:21.0.1")
+
+
+        // Google Play Services Auth
+        implementation("com.google.android.gms:play-services-auth:19.2.0")
+
+    }
+
+
+    // Maps SDK for Android
     implementation("com.google.android.gms:play-services-maps:18.0.1")
     implementation ("com.google.android.gms:play-services-location:18.0.0")
+
 
 
 }
