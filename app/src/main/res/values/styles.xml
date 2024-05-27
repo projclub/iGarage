@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CircleImageViewStyle">
+        <item name="shapeAppearanceOverlay">@style/CircleShapeAppearance</item>
+    </style>
+
+    <style name="CircleShapeAppearance" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item> <!-- Ensures the shape is a perfect circle -->
+    </style>
+</resources>
+

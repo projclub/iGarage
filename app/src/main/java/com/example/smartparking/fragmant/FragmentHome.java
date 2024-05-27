@@ -1,7 +1,11 @@
 package com.example.smartparking.fragmant;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +14,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
 import com.example.smartparking.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -19,6 +25,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -47,7 +54,9 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
 
         // Initialize map fragment
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this); // This will call onMapReady when the map is ready to be used
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(this); // This will call onMapReady when the map is ready to be used
+        }
 
         return v;
     }
@@ -88,8 +97,14 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
                             double longitude = location.getLongitude();
                             LatLng currentLocation = new LatLng(latitude, longitude);
 
-                            // Add marker at current location and move camera
-                            mMap.addMarker(new MarkerOptions().position(currentLocation).title("Your Location"));
+                            // Convert vector drawable to bitmap
+                            Bitmap customMarkerBitmap = getBitmapFromVectorDrawable(requireContext(), R.drawable.car);
+
+                            // Add marker at current location with custom icon and move camera
+                            mMap.addMarker(new MarkerOptions()
+                                    .position(currentLocation)
+                                    .title("Your Location")
+                                    .icon(BitmapDescriptorFactory.fromBitmap(customMarkerBitmap)));
                             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 15)); // Zoom level is set to 15
                         }
                     });
@@ -104,8 +119,12 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
         double msitLongitude = 88.415305;
         LatLng msitParking = new LatLng(msitLatitude, msitLongitude);
 
+        // Convert vector drawable to bitmap
+        Bitmap customMarkerBitmap1 = getBitmapFromVectorDrawable(requireContext(), R.drawable.parking_sign_2526);
+
+
         // Add marker at MSIT Parking and move camera
-        mMap.addMarker(new MarkerOptions().position(msitParking).title("MSIT PARKING"));
+        mMap.addMarker(new MarkerOptions().position(msitParking).title("MSIT PARKING").icon(BitmapDescriptorFactory.fromBitmap(customMarkerBitmap1)));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(msitParking, 15)); // Zoom level is set to 15
     }
 
@@ -119,5 +138,23 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
                 displayFixedLocation();
             }
         }
+    }
+
+    // Utility method to convert vector drawable to bitmap
+    private Bitmap getBitmapFromVectorDrawable(Context context, int drawableId) {
+        Drawable drawable = ContextCompat.getDrawable(context, drawableId);
+        if (drawable instanceof VectorDrawableCompat) {
+            drawable = (VectorDrawableCompat) drawable.mutate();
+        } else if (drawable instanceof android.graphics.drawable.VectorDrawable) {
+            drawable = (android.graphics.drawable.VectorDrawable) drawable.mutate();
+        }
+
+        Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(),
+                drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+        drawable.draw(canvas);
+
+        return bitmap;
     }
 }

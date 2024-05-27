@@ -49,6 +49,8 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.storage)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -69,6 +71,6 @@ dependencies {
     implementation("com.google.android.gms:play-services-maps:18.0.1")
     implementation ("com.google.android.gms:play-services-location:18.0.0")
 
-
+    //for profile picture
 
 }

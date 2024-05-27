@@ -26,8 +26,7 @@ public class FragmentBooking extends Fragment {
     private TextView nameTextView;
     private TextView addressTextView;
     private TextView freeSpacesTextView;
-
-    private CardView  bookingCardView;
+    private CardView bookingCardView;
 
     public FragmentBooking() {
         // Required empty public constructor
@@ -76,10 +75,16 @@ public class FragmentBooking extends Fragment {
                     String address = dataSnapshot.child("address").getValue(String.class);
                     Long freeSpaces = dataSnapshot.child("free_spaces").getValue(Long.class);
 
-                    // Update TextViews with fetched data
-                    nameTextView.setText(name != null ? name : "");
-                    addressTextView.setText(address != null ? address : "");
-                    freeSpacesTextView.setText(freeSpaces != null ? "Free Spaces: " + freeSpaces : "Free Spaces: N/A");
+                    // Update UI elements with retrieved data
+                    if (name != null) {
+                        nameTextView.setText(name);
+                    }
+                    if (address != null) {
+                        addressTextView.setText(address);
+                    }
+                    if (freeSpaces != null) {
+                        freeSpacesTextView.setText(String.valueOf(freeSpaces));
+                    }
                 } else {
                     // Handle the case where no data exists in the dataSnapshot
                     Toast.makeText(getActivity(), "No data found", Toast.LENGTH_SHORT).show();
@@ -93,5 +98,4 @@ public class FragmentBooking extends Fragment {
             }
         });
     }
-
 }
